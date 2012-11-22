@@ -1,5 +1,5 @@
 libvoms3-java (@@DEB_VERSION@@) unstable; urgency=low
 
-  * Initial release for Debian
+  * Initial release for Debian (Closes: #nnnn)
 
- -- Valerio Venturi <valerio.venturi@switch.ch>  Thu, 21 Nov 2012 12:00:00 +0200
+ -- Valerio Venturi <valerio.venturi@cnaf.infn.it>  Thu, 21 Nov 2012 12:00:00 +0200

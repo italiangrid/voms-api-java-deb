@@ -1,7 +1,7 @@
 Source: libvoms3-java
 Priority: extra
 Maintainer: Valerio Venturi <valerio.venturi@cnaf.infn.it>
-Build-Depends: maven2, default-jdk, debhelper (>= 7)
+Build-Depends: maven2, default-jdk, debhelper (>= 7.0.50)
 Standards-Version: 3.9.1
 Section: java
 Homepage: https://github.com/italiangrid/voms-api-java
@@ -10,7 +10,7 @@ Vcs-Browser: https://github.com/italiangrid/voms-api-java
 
 Package: libvoms3-java
 Architecture: all
-Depends: default-jre-headless, libbcmail-java (>=1.46), libcanl-java
+Depends: default-jre-headless, libbcmail-java (>=1.46), libcanl-java, ${misc:Depends}
 Description: The Virtual Organisation Membership Service Java APIs
  The Virtual Organization Membership Service (VOMS) is an attribute authority
  which serves as central repository for VO user authorization information,

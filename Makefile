@@ -8,7 +8,8 @@ debbuild_dir=$(shell pwd)/debbuild
 
 # determine the pom version and set the deb version
 pom_version=$(shell grep "<version>" $(name)-$(deb_version)/pom.xml | head -1 | sed -e 's/<version>//g' -e 's/<\/version>//g' -e "s/[ \t]*//g")
-deb_version=3.0
+deb_version=3.0.0
+deb_age=1
 
 # mvn settings mirror conf url
 mirror_conf_url=https://raw.github.com/italiangrid/build-settings/master/maven/cnaf-mirror-settings.xml
@@ -39,7 +40,7 @@ prepare-sources: sanity-checks clean
 	tar -r -f $(name)-$(deb_version)/$(name)_$(deb_version).tar $(name)-$(deb_version)/$(mirror_conf_name)
 
 prepare-deb-files: prepare-sources
-	sed -e 's#@@DEB_VERSION@@#$(deb_version)#g' debian/changelog.in > debian/changelog
+	sed -e 's#@@DEB_VERSION@@#$(deb_version)-$(deb_age)#g' debian/changelog.in > debian/changelog
 	sed -e 's#@@POM_VERSION@@#$(pom_version)#g' debian/$(name).install.in > debian/$(name).install
 	sed -e 's#@@POM_VERSION@@#$(pom_version)#g' debian/$(name).links.in > debian/$(name).links
 	sed -e 's#@@MVN_SETTINGS@@#$(mvn_settings)#g' debian/rules.in > debian/rules && chmod 755 debian/rules

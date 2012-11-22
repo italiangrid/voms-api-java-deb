@@ -39,6 +39,7 @@ prepare-sources: sanity-checks clean
 	tar -r -f $(name)-$(deb_version)/$(name)_$(deb_version).tar $(name)-$(deb_version)/$(mirror_conf_name)
 
 prepare-deb-files: prepare-sources
+	sed -e 's#@@DEB_VERSION@@#$(deb_version)#g' debian/changelog.in > debian/changelog
 	sed -e 's#@@POM_VERSION@@#$(pom_version)#g' debian/$(name).install.in > debian/$(name).install
 	sed -e 's#@@POM_VERSION@@#$(pom_version)#g' debian/$(name).links.in > debian/$(name).links
 	sed -e 's#@@MVN_SETTINGS@@#$(mvn_settings)#g' debian/rules.in > debian/rules && chmod 755 debian/rules
@@ -60,7 +61,7 @@ deb: print-info deb-src
 	cd $(debbuild_dir)/$(name)-$(deb_version) && debuild -us -uc
 
 clean:
-	@rm -rf $(name)-$(deb_version) $(name)_$(deb_version).src.tar.gz $(debbuild_dir) debian/$(name).install debian/$(name).links debian/rules
+	@rm -rf $(name)-$(deb_version) $(name)_$(deb_version).src.tar.gz $(debbuild_dir) debian/$(name).install debian/$(name).links debian/rules debian/changelog
 
 sanity-checks:
 ifndef tag

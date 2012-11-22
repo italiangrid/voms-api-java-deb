@@ -1,4 +1,5 @@
 debian/rules
+debian/changelog
 debian/libvoms3-java.install
 debian/libvoms3-java.links
 debbuild

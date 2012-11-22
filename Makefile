@@ -11,9 +11,6 @@ debbuild_dir=$(shell pwd)/debbuild
 pom_version=$(shell grep "<version>" $(name)-$(deb_version)/pom.xml | head -1 | sed -e 's/<version>//g' -e 's/<\/version>//g' -e "s/[ \t]*//g")
 deb_version=3.0
 
-# bcmail package name
-bcmail_package=bouncycastle-mail
-
 # mvn settings mirror conf url
 mirror_conf_url=https://raw.github.com/italiangrid/build-settings/master/maven/cnaf-mirror-settings.xml
 
@@ -31,7 +28,6 @@ print-info:
 	@echo
 	@echo "Packaging $(name) fetched from $(git) for tag $(tag)."
 	@echo "Maven settings: $(mirror_conf_url)"
-	@echo "BCMAIL package name: $(bcmail_package)"
 	@echo
 	@echo
 

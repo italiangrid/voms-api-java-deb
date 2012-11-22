@@ -3,11 +3,10 @@ name=voms-api-java
 # the GitHub repo where source tarball will be fetched from
 git=https://github.com/italiangrid/voms-api-java.git
 
-
 # needed dirs
 debbuild_dir=$(shell pwd)/debbuild
 
-# determine the pom version and the rpm version
+# determine the pom version and set the deb version
 pom_version=$(shell grep "<version>" $(name)-$(deb_version)/pom.xml | head -1 | sed -e 's/<version>//g' -e 's/<\/version>//g' -e "s/[ \t]*//g")
 deb_version=3.0
 
@@ -32,9 +31,10 @@ print-info:
 	@echo
 
 prepare-sources: sanity-checks clean
+	# get the source, without git files
 	git clone $(git) $(name)-$(deb_version)
 	cd $(name)-$(deb_version) && git archive --format=tar --prefix=$(name)-$(deb_version)/ $(tag) > $(name)_$(deb_version).tar
-	# Maven mirror settings
+	# add maven mirror settings
 	wget $(mirror_conf_url) -O $(name)-$(deb_version)/$(mirror_conf_name)
 	tar -r -f $(name)-$(deb_version)/$(name)_$(deb_version).tar $(name)-$(deb_version)/$(mirror_conf_name)
 
@@ -48,7 +48,7 @@ prepare-deb-files: prepare-sources
 	rm -rf $(name)-$(deb_version)
 
 prepare-debbuilddir: prepare-deb-files
-	@mkdir -p $(debbuild_dir)
+	mkdir -p $(debbuild_dir)
 	mv $(name)_$(deb_version).tar.gz $(name)_$(deb_version).src.tar.gz
 	cp $(name)_$(deb_version).src.tar.gz $(debbuild_dir)/$(name)_$(deb_version).orig.tar.gz
 	cd $(debbuild_dir) && tar xzvf $(name)_$(deb_version).orig.tar.gz

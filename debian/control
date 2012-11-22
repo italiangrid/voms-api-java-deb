@@ -1,7 +1,7 @@
 Source: voms-api-java
 Priority: extra
 Maintainer: Valerio Venturi <valerio.venturi@cnaf.infn.it>
-Build-Depends: maven2, default-jdk
+Build-Depends: maven2, default-jdk, debhelper (>= 7)
 Standards-Version: 3.9.1
 Section: java
 Homepage: https://github.com/italiangrid/voms-api-java

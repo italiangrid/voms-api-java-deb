@@ -1,0 +1,5 @@
+debian/rules
+debian/voms-api-java.install
+debian/voms-api-java.links
+debbuild
+voms-api-java_*.src.tar.gz

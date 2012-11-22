@@ -1,4 +1,4 @@
-voms-api-java (3.0) unstable; urgency=low
+libvoms3-java (3.0) unstable; urgency=low
 
   * Initial release for Debian
 

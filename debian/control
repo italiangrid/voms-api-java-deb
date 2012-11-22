@@ -1,4 +1,4 @@
-Source: voms-api-java
+Source: libvoms3-java
 Priority: extra
 Maintainer: Valerio Venturi <valerio.venturi@cnaf.infn.it>
 Build-Depends: maven2, default-jdk, debhelper (>= 7)
@@ -8,7 +8,7 @@ Homepage: https://github.com/italiangrid/voms-api-java
 Vcs-Git: git://github.com/italiangrid/voms-api-java.git
 Vcs-Browser: https://github.com/italiangrid/voms-api-java
 
-Package: voms-api-java
+Package: libvoms3-java
 Architecture: all
 Depends: default-jre-headless, libbcmail-java, canl-java
 Description: The Virtual Organisation Membership Service Java APIs

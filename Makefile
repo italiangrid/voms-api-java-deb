@@ -1,4 +1,4 @@
-name=voms-api-java
+name=libvoms3-java
 
 # the GitHub repo where source tarball will be fetched from
 git=https://github.com/italiangrid/voms-api-java.git
@@ -60,7 +60,7 @@ deb: print-info deb-src
 	cd $(debbuild_dir)/$(name)-$(deb_version) && debuild -us -uc
 
 clean:
-	@rm -rf $(name)-$(deb_version) $(name)_$(deb_version).src.tar.gz $(debbuild_dir) debian/voms-api-java.install debian/voms-api-java.links debian/rules
+	@rm -rf $(name)-$(deb_version) $(name)_$(deb_version).src.tar.gz $(debbuild_dir) debian/$(name).install debian/$(name).links debian/rules
 
 sanity-checks:
 ifndef tag

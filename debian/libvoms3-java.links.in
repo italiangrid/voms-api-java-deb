@@ -1,2 +1,2 @@
 # create links: $2 -> $1
-usr/share/java/voms-api-java-@@POM_VERSION@@.jar usr/share/java/voms-api-java.jar
+usr/share/java/voms-api-java-@@POM_VERSION@@.jar usr/share/java/voms-api-java3.jar

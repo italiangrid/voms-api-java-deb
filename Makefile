@@ -1,4 +1,5 @@
 name=libvoms3-java
+tag=3.x
 
 # the GitHub repo where source tarball will be fetched from
 git=https://github.com/italiangrid/voms-api-java.git

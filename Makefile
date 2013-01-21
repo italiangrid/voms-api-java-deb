@@ -37,7 +37,7 @@ prepare-sources: sanity-checks clean
 	git clone $(git) $(name)-$(deb_version)
 	cd $(name)-$(deb_version) && git archive --format=tar --prefix=$(name)-$(deb_version)/ $(tag) > $(name)_$(deb_version).tar
 	# add maven mirror settings
-	wget $(mirror_conf_url) -O $(name)-$(deb_version)/$(mirror_conf_name)
+	wget --no-check-certificate $(mirror_conf_url) -O $(name)-$(deb_version)/$(mirror_conf_name)
 	tar -r -f $(name)-$(deb_version)/$(name)_$(deb_version).tar $(name)-$(deb_version)/$(mirror_conf_name)
 
 prepare-deb-files: prepare-sources
